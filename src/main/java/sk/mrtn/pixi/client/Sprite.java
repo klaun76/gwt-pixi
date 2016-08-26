@@ -60,6 +60,12 @@ public class Sprite extends Container {
         filters = null;
     }
 
+    /**
+     * Just first try how to work with typed filters and manage
+     * adding/removing
+     * TODO: create fully functional Typed manipulation of filters
+     * @param filter
+     */
     @JsOverlay
     public final void addFilter(AbstractFilter filter) {
         if (filter instanceof GrayFilter) {
