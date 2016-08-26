@@ -1,0 +1,53 @@
+
+apply plugin: 'java'
+apply plugin: "net.ltgt.apt"
+apply plugin: 'idea'
+apply plugin: 'fr.putnami.gwt'
+
+repositories {
+    mavenCentral()
+}
+
+sourceCompatibility = "1.8"
+
+dependencies {
+    compile "com.google.guava:guava-gwt:${rootProject.guavaVersion}"
+    compile "com.google.gwt:gwt-user:$rootProject.gwtVersion"
+    compile "com.google.dagger:dagger-gwt:${rootProject.daggerVersion}"
+    compile "com.google.auto.factory:auto-factory:${rootProject.autofactoryVersion}"
+
+    // https://mvnrepository.com/artifact/com.google.gwt/gwt-dev
+    compile group: 'com.google.gwt', name: 'gwt-dev', version: rootProject.gwtVersion
+
+    compileOnly "com.google.dagger:dagger:${rootProject.daggerVersion}"
+    apt "com.google.auto.factory:auto-factory:${rootProject.autofactoryVersion}"
+    apt "com.google.guava:guava:${rootProject.guavaVersion}"
+    apt "com.google.dagger:dagger-compiler:${rootProject.daggerVersion}"
+
+}
+
+putnami {
+    /** GWT version */
+    gwtVersion = rootProject.gwtVersion
+    /** Add the gwt-elemental lib */
+    gwtElementalLib = true
+
+    dev {
+        generateJsInteropExports = true
+    }
+
+    compile {
+        generateJsInteropExports = true
+
+    }
+}
+
+def genResources = new File(project.buildDir, "generated/source/apt/main")
+
+sourceSets {
+    main {
+        resources {
+            srcDir genResources
+        }
+    }
+}
