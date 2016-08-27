@@ -1,4 +1,4 @@
-package sk.mrtn.pixi.client;
+package sk.mrtn.pixi.client.particles;
 
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
