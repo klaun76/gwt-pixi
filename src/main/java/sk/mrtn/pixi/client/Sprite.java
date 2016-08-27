@@ -1,14 +1,6 @@
 package sk.mrtn.pixi.client;
 
 import jsinterop.annotations.*;
-import sk.mrtn.pixi.client.filters.AbstractFilter;
-import sk.mrtn.pixi.client.filters.BlurXFilter;
-import sk.mrtn.pixi.client.filters.FilterType;
-import sk.mrtn.pixi.client.filters.GrayFilter;
-import sk.mrtn.pixi.client.interaction.ClickEventHandler;
-import sk.mrtn.pixi.client.interaction.MouseDownEventHandler;
-
-import java.util.logging.Logger;
 
 /**
  * Created by klaun on 20/08/16.
@@ -42,7 +34,7 @@ public class Sprite extends Container {
     @JsProperty
     public int cachedTint;
     @JsProperty
-    public AbstractFilter[] filters;
+    public Filter[] filters;
 
     // PUBLIC METHODS
     @JsMethod
@@ -67,11 +59,8 @@ public class Sprite extends Container {
      * @param filter
      */
     @JsOverlay
-    public final void addFilter(AbstractFilter filter) {
-        if (filter instanceof GrayFilter) {
-            filter.type = FilterType.GRAY.getType();
-        }
-        AbstractFilter[] nFilters = new AbstractFilter[getFilters().length+1];
+    public final void addFilter(Filter filter) {
+        Filter[] nFilters = new Filter[getFilters().length+1];
         for (int i = 0; i < getFilters().length; i++) {
             nFilters[i] = getFilters()[i];
         }
@@ -80,9 +69,9 @@ public class Sprite extends Container {
     }
 
     @JsOverlay
-    public final AbstractFilter[] getFilters() {
+    public final Filter[] getFilters() {
         if (filters == null) {
-            filters = new AbstractFilter[0];
+            filters = new Filter[0];
         }
         return this.filters;
     }
