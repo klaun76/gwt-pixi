@@ -5,6 +5,8 @@ import jsinterop.annotations.JsMethod;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 
+import javax.inject.Inject;
+
 /**
  * Created by klaun on 20/08/16.
  */
@@ -16,12 +18,14 @@ public class Ticker {
 
     // PUBLIC STATIC METHODS
 
+    @Inject
     @JsConstructor
     public Ticker(){}
 
     // PUBLIC FIELDS
     @JsProperty
     public boolean autoStart;
+    // in milliseconds
     @JsProperty
     public int deltaTime;
     @JsProperty
@@ -35,11 +39,11 @@ public class Ticker {
 
     // PUBLIC METHODS
     @JsMethod
-    public native Ticker add(Object fn, Object context);
+    public native Ticker add(ITickable tickable);
     @JsMethod
-    public native Ticker addOnce(Object fn, Object context);
+    public native Ticker addOnce(ITickable tickable);
     @JsMethod
-    public native Ticker remove(Object fn, Object context);
+    public native Ticker remove(ITickable tickable);
     @JsMethod
     public native void start();
     @JsMethod
