@@ -1,7 +1,9 @@
 package sk.mrtn.pixi.client.particles.config;
 
+import jsinterop.annotations.JsMethod;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
+import sk.mrtn.pixi.client.particles.Emitter;
 
 /**
  * Created by klaun on 22/08/16.
@@ -80,5 +82,7 @@ public class EmitterConfig {
     @JsProperty
     public Double angleStart;
 
+    @JsMethod(namespace="JSON")
+    public static native EmitterConfig parse(String text);
 
 }
