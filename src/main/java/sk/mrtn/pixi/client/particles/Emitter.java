@@ -31,10 +31,10 @@ public class Emitter {
     /**
      * suitable for AnimatedParticle
      * @param container
-     * @param animatedArticleArtTextureNames
+     * @param animatedParticleArtTextureNames
      */
     @JsConstructor
-    public Emitter(Container container, AnimatedArticleArtTextureNames[] animatedArticleArtTextureNames, EmitterConfig config){}
+    public Emitter(Container container, AnimatedParticleArtTextureNames[] animatedParticleArtTextureNames, EmitterConfig config){}
 
     /**
      * suitable for Particle
