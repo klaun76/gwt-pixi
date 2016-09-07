@@ -32,8 +32,10 @@ Native javascript pixi.js is kept within project files for now. It will load aut
     * pixi stage created
     * simple objects added
     * tested interaction on desktop
-    * tested some filters with basic settings
+    * tested all filters from PIXI 4 version + found some undocumented as predator :-)
     * tested particle systems with Particle AnimatedParticle (PathParticle is in TODO)
+    * found out that coloring particles within ParticleContainer is disabled due to performance issues
+    * did tests with Ticker object, which worked well, but I decided to create custom ticker solution which would have better customisation
 * TextureAtlasResource 
     * is new resource type which allows to work with [Texture Atlas](https://en.wikipedia.org/wiki/Texture_atlas) (coupled json + image) generated also by [Texture Packer](https://www.codeandweb.com/texturepacker)
 
@@ -67,7 +69,7 @@ multi_file_resource_filename_1.json + multi_file_resource_filename_1.png
     * to get hold of all frames in json description of file use this method
 
 # What will be next ?
-I'm working on small educational project. During development i'll try to improve library best i can. I already started to work on enumeration of filters to have more comfort. I want to have look at Ticker and optimised environment for frame animations. As soon as PIXI 4 is out i'll switch libraries.
+I'm working on small educational project. During development i'll try to improve library best i can. I already started to work on enumeration of filters to have more comfort.
     
 # Note
 Project is in early stage of development. Any suggestions or collaboration is appreciated. I would welcome suggestions concerning good coding manners. I'm life educated programmer (may be a strong word) and still learning Doing things right and also doing the right things
