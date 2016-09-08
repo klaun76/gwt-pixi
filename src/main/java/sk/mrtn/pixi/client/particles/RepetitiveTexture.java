@@ -25,7 +25,7 @@ public class RepetitiveTexture {
      * @param count
      */
     @JsIgnore
-    RepetitiveTexture(String texture, int count){
+    public RepetitiveTexture(String texture, int count){
         this.texture = texture;
         this.count = count;
     }
