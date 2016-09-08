@@ -158,7 +158,7 @@ public class AnimatedParticleArtTextureNames {
     }
 
     @JsType()
-    private class TextureWithCount {
+    public class TextureWithCount {
         @JsProperty
         Object texture;
         @JsProperty
