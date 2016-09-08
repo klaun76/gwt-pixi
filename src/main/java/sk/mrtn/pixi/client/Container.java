@@ -46,11 +46,7 @@ public class Container extends DisplayObject {
     @JsMethod
     public native Texture generateTexture(Renderer renderer, int resolution, int scaleMode);
     @JsMethod
-    public native void containerUpdateTransform();
-    @JsMethod
     public native Rectangle getBounds();
-    @JsMethod
-    public native Rectangle containerGetBounds();
     @JsMethod
     public native void destroy(boolean destroyChildren);
     @JsMethod
