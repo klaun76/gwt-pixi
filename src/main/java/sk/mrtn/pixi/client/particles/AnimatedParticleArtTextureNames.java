@@ -65,17 +65,12 @@ public class AnimatedParticleArtTextureNames {
     }
 
     /**
-     * sets new texture set composed from any object. in fact. check
-     * class comment for further information concerning type of textures
-     * @param untypedTextures
+     * sets new texture set composed from {@link sk.mrtn.pixi.client.Texture}
+     * @param repetitiveTextures
      */
     @JsIgnore
-    public final void setTextures(Object... untypedTextures) {
-        if (untypedTextures == null) {
-            this.textures = new Object[0];
-        } else {
-            this.textures = untypedTextures;
-        }
+    public final void setTextures(RepetitiveTexture... repetitiveTextures) {
+        this.textures = repetitiveTextures;
     }
 
     /**
@@ -98,7 +93,7 @@ public class AnimatedParticleArtTextureNames {
     }
 
     /**
-     * add texture as string to existing texture set
+     * add texture as String to existing texture set
      * @param textureName
      */
     @JsIgnore
@@ -107,7 +102,7 @@ public class AnimatedParticleArtTextureNames {
     }
 
     /**
-     * add texture as texture to existing texture set
+     * add texture as {@link sk.mrtn.pixi.client.Texture} to existing texture set
      * @param texture
      */
     @JsIgnore
@@ -116,28 +111,14 @@ public class AnimatedParticleArtTextureNames {
     }
 
     /**
-     * add textureName and count to existing texture set
-     * texture will be repeated for count times within animation
-     * @param textureName
-     * @param count
+     * add texture as {@link sk.mrtn.pixi.client.particles.RepetitiveTexture} to existing texture set
+     * @param texture
      */
     @JsIgnore
-    public void addTexture(String textureName, int count) {
-        TextureWithCount textureWithCount = new TextureWithCount(textureName,count);
-        updateTextures(textureWithCount);
+    public void addTexture(RepetitiveTexture texture) {
+        updateTextures(texture);
     }
 
-    /**
-     * add texture and count to existing texture set
-     * texture will be repeated for count times within animation
-     * @param texture
-     * @param count
-     */
-    @JsIgnore
-    public void addTexture(Texture texture, int count) {
-        TextureWithCount textureWithCount = new TextureWithCount(texture,count);
-        updateTextures(textureWithCount);
-    }
 
     @JsIgnore
     private void updateTextures(Object texture) {
@@ -156,18 +137,4 @@ public class AnimatedParticleArtTextureNames {
         }
         return this.textures;
     }
-
-    @JsType()
-    public class TextureWithCount {
-        @JsProperty
-        Object texture;
-        @JsProperty
-        int count;
-        @JsIgnore
-        TextureWithCount(Object texture, int count){
-            this.texture = texture;
-            this.count = count;
-        }
-    }
-
 }
