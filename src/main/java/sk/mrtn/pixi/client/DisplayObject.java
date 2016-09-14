@@ -149,6 +149,25 @@ public abstract class DisplayObject {
     @JsProperty
     public Rectangle filterArea;
 
+    /**
+     * Sets a mask for the displayObject. A mask is an object that
+     * limits the visibility of an object to the shape of the mask applied to it.
+     * In PIXI a regular mask must be a PIXI.Graphics or a PIXI.Sprite object.
+     * This allows for much faster masking in canvas as it utilises shape clipping.
+     * To remove a mask, set this property to null.
+     * FIXME: Sprite or Graphic
+     */
+    @JsProperty
+    public Sprite mask;
+
+    /**
+     * World transform and local transform of this object.
+     * This will be reworked in v4.1, please do not use
+     * it yet unless you know what are you doing!
+     */
+    @JsProperty
+    public TransformBase transform;
+
     // UNDOCUMENTED
     @JsProperty
     public String name;
@@ -201,7 +220,7 @@ public abstract class DisplayObject {
 
     /**
      * Retrieves the local bounds of the displayObject as a rectangle object
-     * @return
+     * @return the rectangular bounding area
      */
     @JsMethod
     public native Rectangle getLocalBounds();
