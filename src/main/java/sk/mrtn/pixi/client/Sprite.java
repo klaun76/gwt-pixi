@@ -10,6 +10,13 @@ import jsinterop.annotations.*;
 @JsType(isNative = true, namespace = "PIXI")
 public class Sprite extends Container {
 
+    /**
+     * constructor forced by descendant
+     * TODO:check if necesary
+     */
+    protected Sprite() {
+    }
+
     // PUBLIC STATIC FIELDS
 
     // PUBLIC STATIC METHODS
