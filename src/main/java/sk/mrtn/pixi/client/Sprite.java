@@ -1,12 +1,13 @@
 package sk.mrtn.pixi.client;
 
+import com.google.auto.factory.AutoFactory;
 import jsinterop.annotations.*;
 
 /**
  * Created by klaun on 20/08/16.
  * @see <a href="https://pixijs.github.io/docs/PIXI.Sprite.html">Sprite</a>
  */
-
+@AutoFactory
 @JsType(isNative = true, namespace = "PIXI")
 public class Sprite extends Container {
 
