@@ -22,7 +22,6 @@ public class Texture {
     /**
      * This is the area of the BaseTexture image to actually copy to the Canvas / WebGL when rendering,
      * irrespective of the actual frame size or placement (which can be influenced by trimmed texture atlases)
-     * TODO: check if frame or _frame property is valid
      */
     @JsProperty
     public Rectangle _frame;

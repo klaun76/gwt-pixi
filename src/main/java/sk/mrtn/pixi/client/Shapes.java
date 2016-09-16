@@ -5,11 +5,12 @@ import jsinterop.annotations.JsType;
 
 /**
  * Created by klaun on 20/08/16.
+ * Constants that identify shapes, mainly to prevent instanceof calls.
+ * @see <a href="https://pixijs.github.io/docs/PIXI.html#.SHAPES">SHAPES</a>
  */
 @JsType(isNative = true)
 public class Shapes {
 
-    // PUBLIC FIELDS
     @JsProperty
     public int POLY;
     @JsProperty
@@ -20,7 +21,5 @@ public class Shapes {
     public int ELIP;
     @JsProperty
     public int RREC;
-
-    // PUBLIC METHODS
 
 }

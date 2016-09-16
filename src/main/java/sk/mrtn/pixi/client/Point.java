@@ -1,9 +1,6 @@
 package sk.mrtn.pixi.client;
 
-import jsinterop.annotations.JsConstructor;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsProperty;
-import jsinterop.annotations.JsType;
+import jsinterop.annotations.*;
 
 /**
  * Created by klaun on 20/08/16.
@@ -31,4 +28,8 @@ public class Point {
     @JsMethod
     public native void set(double x, double y);
 
+    @JsOverlay
+    public final String toString() {
+        return "Point {x: "+x+", y: "+y+"}";
+    }
 }
