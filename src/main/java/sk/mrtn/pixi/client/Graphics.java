@@ -111,6 +111,7 @@ public class Graphics extends Container {
 
     /**
      * Specifies the line style used for subsequent calls to
+     * TODO: consult with tomi optional parameters
      * Graphics methods such as the lineTo() method or the drawCircle() method.
      * @param lineWidth width of the line to draw, will update the objects stored style
      * @param color color of the line to draw, will update the objects stored style
@@ -118,9 +119,9 @@ public class Graphics extends Container {
      * @return
      */
     @JsMethod
-    public native Graphics lineStyle(Double lineWidth, Double color, Double alpha);
+    public native Graphics lineStyle(double lineWidth, double color, double alpha);
     @JsMethod
-    public native Graphics lineStyle(Double lineWidth);
+    public native Graphics lineStyle(double lineWidth);
 
     /**
      * Moves the current drawing position to x, y.
