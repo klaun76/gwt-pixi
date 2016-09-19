@@ -168,13 +168,26 @@ public abstract class DisplayObject {
     @JsProperty
     public TransformBase transform;
 
-    // UNDOCUMENTED
     @JsProperty
     public String name;
+
+    /**
+     * enable the DisplayObject to be interactive... this will
+     * allow it to respond to mouse and touch events
+     */
     @JsProperty
     public boolean interactive;
+
+    /**
+     * this button mode will mean the hand cursor appears when
+     * you roll over the bunny with your mouse
+     */
+
     @JsProperty
     public boolean buttonMode;
+
+    // UNDOCUMENTED
+
     @JsProperty
     public boolean interactiveChildren;
     @JsProperty
@@ -197,6 +210,13 @@ public abstract class DisplayObject {
     public DisplayObject(){}
 
     // PUBLIC METHODS
+
+    /**
+     * recursively updates transform of all objects from the root to this one
+     * internal function for toLocal()
+     */
+    @JsMethod
+    public native void _recursivePostUpdateTransform();
 
     /**
      * Retrieves the bounds of the displayObject as a rectangle object.
