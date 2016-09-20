@@ -79,6 +79,8 @@ public class Sprite extends Container {
      * Setting the anchor to 0.5,0.5 means the texture's origin is centered
      * Setting the anchor to 1,1 would mean the texture's origin point
      * will be the bottom right corner
+     * Warning do not change by setting new Point, use Point#set method
+     * TODO: tomi ask if create setter and make anchor protected.
      */
     @JsProperty
     public Point anchor;

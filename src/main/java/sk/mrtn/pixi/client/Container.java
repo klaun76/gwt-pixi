@@ -1,5 +1,6 @@
 package sk.mrtn.pixi.client;
 
+import elemental.events.EventListener;
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsMethod;
 import jsinterop.annotations.JsProperty;
@@ -135,6 +136,10 @@ public class Container extends DisplayObject {
      */
     @JsMethod
     public native void destroy(Object options);
+
     @JsMethod
     public native DisplayObject getChildByName(String  name);
+
+    @JsMethod
+    public native void on(String eventType, Object eventListener);
 }

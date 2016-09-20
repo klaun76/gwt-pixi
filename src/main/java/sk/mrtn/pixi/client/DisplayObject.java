@@ -4,8 +4,6 @@ import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsMethod;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
-import sk.mrtn.pixi.client.interaction.ClickEventHandler;
-import sk.mrtn.pixi.client.interaction.MouseDownEventHandler;
 
 /**
  * Created by klaun on 20/08/16.
@@ -199,13 +197,6 @@ public abstract class DisplayObject {
     @JsProperty
     public int tabIndex;
 
-    // TODO: skonzultovat s tomaskom co dalej tu
-    @JsProperty
-    public MouseDownEventHandler mousedown;
-
-    @JsProperty
-    public ClickEventHandler click;
-
     @JsConstructor
     public DisplayObject(){}
 
@@ -325,5 +316,7 @@ public abstract class DisplayObject {
     public native Texture generateTexture(Renderer renderer, double scaleMode, double resolution);
 
 
+    @JsMethod
+    public native DisplayObject on();
 
 }
