@@ -70,7 +70,7 @@ public abstract class DisplayObject {
      * The opacity of the object.
      */
     @JsProperty
-    public int alpha;
+    public double alpha;
 
     /**
      * Current transform of the object based on local factors: position, scale, other stuff
