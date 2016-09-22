@@ -1,9 +1,11 @@
 package sk.mrtn.pixi.client;
 
-import jsinterop.annotations.JsConstructor;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsProperty;
-import jsinterop.annotations.JsType;
+import jsinterop.annotations.*;
+import sk.mrtn.pixi.client.interaction.EventListener;
+
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashSet;
 
 /**
  * Created by klaun on 20/08/16.
@@ -315,8 +317,74 @@ public abstract class DisplayObject {
     @JsMethod
     public native Texture generateTexture(Renderer renderer, double scaleMode, double resolution);
 
-
+    /**
+     * method allows to attach interaction for object
+     * @param eventType
+     * @param eventListener
+     */
     @JsMethod
-    public native DisplayObject on();
+    public native void on(String eventType, EventListener eventListener);
 
+    /**
+     * Collection tags, and associated methods are not part
+     * of pixi code. I decided to add tagging for display objects
+     * because I had good experience with this logic in previous
+     * projects.
+     * Tags should allow to search within display tree for
+     * tagged objects create specified collections and
+     * work with them.
+     */
+    protected Collection<Integer> tags;
+
+    /**
+     * method adds tag to object
+     * @param tag
+     */
+    @JsOverlay
+    public final void addTag(final int tag) {
+        safeGetTags().add(tag);
+    }
+
+    /**
+     * method returns if object has specified tag
+     * @param tag
+     * @return
+     */
+    @JsOverlay
+    public final boolean hasTag(final int tag) {
+        return safeGetTags().contains(tag);
+    }
+
+    /**
+     * method returns all tags of object
+     * @return
+     */
+    @JsOverlay
+    public final Collection<Integer> getTags() {
+        return Collections.unmodifiableCollection(safeGetTags());
+    }
+
+    /**
+     * method resets new tag collection
+     * @param tags
+     */
+    @JsOverlay
+    public final void setTags(final Collection<Integer> tags) {
+        safeGetTags().clear();
+        safeGetTags().addAll(tags);
+    }
+
+    /**
+     * method exists just because,
+     * Native JsType field 'Collection DisplayObject.tags' cannot have initializer.
+     * and i was too lazy to search for better solution
+     * @return
+     */
+    @JsOverlay
+    private final Collection<Integer> safeGetTags() {
+        if (this.tags == null) {
+            this.tags = new HashSet<>();
+        }
+        return this.tags;
+    }
 }
