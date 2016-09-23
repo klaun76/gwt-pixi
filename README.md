@@ -38,7 +38,8 @@ Native javascript pixi.js is kept within project files for now. It will load aut
     * did tests with Ticker object, which worked well, but I decided to create custom ticker solution which would have better customisation
 * TextureAtlasResource 
     * is new resource type which allows to work with [Texture Atlas](https://en.wikipedia.org/wiki/Texture_atlas) (coupled json + image) generated also by [Texture Packer](https://www.codeandweb.com/texturepacker)
-
+* Refactor of classes and interfaces, added documentation, removed undocummented code
+* Tests with pixi shapes, basic interaction
 # HOW TO USE TextureAtlasResource
 * add resources to resource folder as standard resources (json and image file in same folder)
 * prepare ClientBundle as usually
