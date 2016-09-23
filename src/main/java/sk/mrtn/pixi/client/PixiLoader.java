@@ -45,8 +45,8 @@ public interface PixiLoader {
         }
 
         protected interface Resources extends ClientBundle {
-//            @Source("pixi.min.js")
-            @Source("pixi.js")
+            @Source("pixi.min.js")
+//            @Source("pixi.js")
             TextResource pixi();
 
             @Source("pixi-particles.min.js")
