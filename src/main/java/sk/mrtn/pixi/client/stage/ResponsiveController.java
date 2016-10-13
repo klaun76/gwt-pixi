@@ -21,4 +21,9 @@ public class ResponsiveController implements IResponsiveController {
     public void onDetached() {
 
     }
+
+    @Override
+    public void addResponsiveController(IResponsiveController responsiveController) {
+        throw new UnsupportedOperationException();
+    }
 }

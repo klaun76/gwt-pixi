@@ -13,4 +13,6 @@ public interface IResponsiveController {
 
     void onDetached();
 
+    void addResponsiveController(IResponsiveController responsiveController);
+
 }
