@@ -318,12 +318,25 @@ public abstract class DisplayObject {
     public native Texture generateTexture(Renderer renderer, double scaleMode, double resolution);
 
     /**
-     * method allows to attach interaction for object
+     * method allows to add interaction for object
      * @param eventType
      * @param eventListener
      */
     @JsMethod
     public native void on(String eventType, EventListener eventListener);
+
+    /**
+     * method allows to remove interaction of given type for object
+     * @param eventType
+     */
+    @JsMethod
+    public native void off(String eventType);
+
+    /**
+     * method allows to remove interaction for object
+     */
+    @JsMethod
+    public native void off();
 
     /**
      * Collection tags, and associated methods are not part

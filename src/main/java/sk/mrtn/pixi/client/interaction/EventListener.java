@@ -1,6 +1,5 @@
 package sk.mrtn.pixi.client.interaction;
 
-import elemental.events.Event;
 import jsinterop.annotations.JsFunction;
 
 /**
