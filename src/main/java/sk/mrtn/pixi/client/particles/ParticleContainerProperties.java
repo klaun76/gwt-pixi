@@ -9,7 +9,6 @@ import javax.inject.Inject;
  * Created by klaun on 20/08/16.
  */
 
-@JsType()
 public class ParticleContainerProperties {
 
     // default false optional When true, scale be uploaded and applied.

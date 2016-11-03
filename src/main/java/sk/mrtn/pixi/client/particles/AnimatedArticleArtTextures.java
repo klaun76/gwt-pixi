@@ -8,7 +8,6 @@ import sk.mrtn.pixi.client.Texture;
  * Created by klaun on 23/08/16.
  */
 
-@JsType()
 public class AnimatedArticleArtTextures {
 
     @JsProperty

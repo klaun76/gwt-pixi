@@ -13,10 +13,14 @@ public class PixiEntryPoint implements EntryPoint {
 
     @Override
     public void onModuleLoad() {
-        PixiLoader.Statics.ensureInjected();
     }
 
-    public static native PIXI getPixi() /*-{
+    public static PIXI getPixi() {
+        PixiLoader.Statics.ensureInjected();
+        return getPixi0();
+    }
+
+    public static native PIXI getPixi0() /*-{
         return $wnd.PIXI;
     }-*/;
 

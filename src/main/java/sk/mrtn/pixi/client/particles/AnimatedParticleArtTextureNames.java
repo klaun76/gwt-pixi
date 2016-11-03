@@ -39,7 +39,6 @@ import sk.mrtn.pixi.client.Texture;
  *  TODO:consult with tomi for more elegant solution of oveloading methods
  */
 
-@JsType()
 public class AnimatedParticleArtTextureNames {
 
     @JsProperty

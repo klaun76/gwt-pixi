@@ -7,7 +7,6 @@ import jsinterop.annotations.JsType;
  * Created by martinliptak on 19/09/16.
  */
 
-@JsType
 public class TextOptions {
 
     /**
