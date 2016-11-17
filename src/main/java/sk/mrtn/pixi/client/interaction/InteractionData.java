@@ -34,6 +34,14 @@ public class InteractionData {
     public DisplayObject target;
 
     /**
+     * I'm not sure about true purpose of this property but I used this
+     * to identify touchdown, touchscroll touchend events which are caused
+     * by same touch object. During tests this identifier has been same
+     */
+    @JsProperty
+    public Double identifier;
+
+    /**
      * This will return the local coordinates of the specified displayObject for this InteractionData
      * @param displayObject The DisplayObject that you would like the local coords off
      * @param point (optional) A Point object in which to store the value, optional (otherwise will create a new point)
