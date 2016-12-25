@@ -42,4 +42,14 @@ public abstract class AResponsiveController implements IResponsiveController {
         this.responsiveControllers.add(responsiveController);
         this.container.addChild(responsiveController.getContainer());
     }
+
+    @Override
+    public void removeResponsiveController(IResponsiveController responsiveController) {
+        if (!this.responsiveControllers.contains(responsiveController)) {
+            throw new NullPointerException("controller does not exist");
+        } else {
+            this.responsiveControllers.remove(responsiveController);
+            this.container.removeChild(responsiveController.getContainer());
+        }
+    }
 }

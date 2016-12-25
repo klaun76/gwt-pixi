@@ -15,4 +15,6 @@ public interface IResponsiveController {
 
     void addResponsiveController(IResponsiveController responsiveController);
 
+    void removeResponsiveController(IResponsiveController responsiveController);
+
 }

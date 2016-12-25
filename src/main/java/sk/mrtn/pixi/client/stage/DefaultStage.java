@@ -7,6 +7,7 @@ import sk.mrtn.pixi.client.PixiEntryPoint;
 import sk.mrtn.pixi.client.Renderer;
 
 import javax.inject.Inject;
+import java.util.logging.Logger;
 
 /**
  * Created by martinliptak on 22/09/16.
@@ -28,9 +29,6 @@ public class DefaultStage implements IStage {
         this.width = (int) width;
         this.height = (int) height;
         this.renderer.resize(width,height);
-        if (this.responsiveStage != null) {
-            this.responsiveStage.onResized(width, height);
-        }
         this.render();
     }
 
@@ -55,6 +53,9 @@ public class DefaultStage implements IStage {
     @Override
     public void render() {
         if (this.stage != null) {
+            if (this.responsiveStage != null) {
+                this.responsiveStage.onResized(this.width, this.height);
+            }
             this.renderer.render(this.stage);
         }
     }
