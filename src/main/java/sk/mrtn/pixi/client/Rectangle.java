@@ -64,4 +64,9 @@ public class Rectangle implements IShape {
     public final String toString() {
         return "Rectangle {x: "+x+", y: "+y+", width: "+width+", height: "+height+"}";
     }
+
+    @JsOverlay
+    public final String asString() {
+        return "Rectangle {x: "+x+", y: "+y+", width: "+width+", height: "+height+"}";
+    }
 }

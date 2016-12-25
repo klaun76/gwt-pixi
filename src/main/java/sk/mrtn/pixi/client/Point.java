@@ -32,4 +32,9 @@ public class Point {
     public final String toString() {
         return "Point {x: "+x+", y: "+y+"}";
     }
+
+    @JsOverlay
+    public final String asString() {
+        return "Point {x: "+x+", y: "+y+"}";
+    }
 }
