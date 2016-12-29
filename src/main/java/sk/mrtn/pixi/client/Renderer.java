@@ -75,6 +75,8 @@ public class Renderer {
     public native void render(DisplayObject object);
     @JsMethod
     public native void destroy(boolean removeView);
+
+    @SuppressWarnings("unusable-by-js")
     @JsMethod
     public native void renderDisplayObject(DisplayObject displayObject, CanvasRenderingContext2D context);
     @JsMethod

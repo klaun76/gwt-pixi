@@ -81,7 +81,7 @@ public class Container extends DisplayObject {
      * @return The index position of the child display object to identify
      */
     @JsMethod
-    public native Integer getChildIndex(DisplayObject child);
+    public native int getChildIndex(DisplayObject child);
 
     /**
      * Changes the position of an existing child in the display object container
@@ -122,7 +122,7 @@ public class Container extends DisplayObject {
      * @param endIndex (this.children.length) The ending position. Default value is size of the container.
      */
     @JsMethod
-    public native void removeChildren(Integer beginIndex, Integer endIndex);
+    public native void removeChildren(int beginIndex, int endIndex);
     @JsMethod
     public native Texture generateTexture(Renderer renderer, int resolution, int scaleMode);
 
