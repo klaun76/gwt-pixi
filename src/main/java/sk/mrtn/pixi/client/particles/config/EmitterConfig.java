@@ -47,7 +47,7 @@ public class EmitterConfig {
     public String blendMode;
 
     @JsProperty
-    public Boolean frequency;
+    public Double frequency;
 
     @JsProperty
     public Double emitterLifetime;

@@ -8,7 +8,7 @@ import sk.mrtn.pixi.client.Texture;
  * Created by klaun on 23/08/16.
  */
 
-public class AnimatedArticleArtTextures {
+public class AnimatedParticleArtTextures {
 
     @JsProperty
     public Integer framerate;

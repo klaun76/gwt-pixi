@@ -1,5 +1,6 @@
 package sk.mrtn.pixi.client.stage;
 
+import com.google.gwt.core.client.GWT;
 import elemental.dom.Node;
 import sk.mrtn.pixi.client.Container;
 import sk.mrtn.pixi.client.PIXI;
