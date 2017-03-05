@@ -122,8 +122,10 @@ public class AnimatedParticleArtTextureNames {
     @JsIgnore
     private void updateTextures(Object texture) {
         Object[] updatedTextures = new Object[getTextures().length + 1];
-        for (int i = 0; i < updatedTextures.length; i++) {
-            updatedTextures[i] = this.textures[i];
+        if (this.textures.length > 0) {
+            for (int i = 0; i < updatedTextures.length; i++) {
+                updatedTextures[i] = this.textures[i];
+            }
         }
         updatedTextures[textures.length] = texture;
         this.textures = updatedTextures;
