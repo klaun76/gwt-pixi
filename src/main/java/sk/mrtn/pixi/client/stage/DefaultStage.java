@@ -1,6 +1,5 @@
 package sk.mrtn.pixi.client.stage;
 
-import com.google.gwt.core.client.GWT;
 import elemental.dom.Node;
 import sk.mrtn.pixi.client.Container;
 import sk.mrtn.pixi.client.PIXI;
@@ -8,7 +7,6 @@ import sk.mrtn.pixi.client.PixiEntryPoint;
 import sk.mrtn.pixi.client.Renderer;
 
 import javax.inject.Inject;
-import java.util.logging.Logger;
 
 /**
  * Created by martinliptak on 22/09/16.
