@@ -66,6 +66,8 @@ public class DefaultStage implements IStage {
         this.stage = new Container();
         this.pixi = PixiEntryPoint.getPixi();
         this.renderer = this.pixi.autoDetectRenderer(width, height);
+        // should be better performance on older devices, probably
+        this.renderer.preserveDrawingBuffer = true;
         // TODO: figure out why next line of code fails when built
 //        this.renderer.view.getStyle().setPosition(CSSStyleDeclaration.Position.ABSOLUTE);
     }
