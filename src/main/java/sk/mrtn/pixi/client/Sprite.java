@@ -91,7 +91,7 @@ public class Sprite extends Container {
      * TODO: check if should be _tint or tint
      */
     @JsProperty
-    public int _tint;
+    public int tint;
 
     /**
      * The blend mode to be applied to the sprite.
