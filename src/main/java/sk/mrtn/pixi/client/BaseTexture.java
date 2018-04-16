@@ -19,6 +19,8 @@ public class BaseTexture {
     @JsMethod
     public static native BaseTexture fromImage(String  imageUrl, boolean crossorigin, Double scaleMode);
     @JsMethod
+    public static native BaseTexture fromImage(String  imageUrl);
+    @JsMethod
     public static native BaseTexture fromCanvas(CanvasElement canvas, Double scaleMode);
 
     @JsConstructor
