@@ -6,15 +6,13 @@ import com.google.gwt.safehtml.shared.SafeUri;
 import sk.mrtn.pixi.client.resources.spine.SkeletonResourceGenerator;
 
 import java.util.List;
-import java.util.Map;
 
+/**
+ * @author Tomas Ecker
+ */
 @ResourceGeneratorType(SkeletonResourceGenerator.class)
 public interface SkeletonResource extends ResourcePrototype {
     List<SafeUri> getUrisOfAtlasImages();
 
-    Map<String, SafeUri> getImagesMap();
-
-//    SkeletonData getSkeletonData();
-
-    TextureAtlas getTextureAtlas();
+    SkeletonData getSkeletonData();
 }
