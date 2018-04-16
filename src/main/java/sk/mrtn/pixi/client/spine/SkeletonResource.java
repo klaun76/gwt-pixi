@@ -16,5 +16,5 @@ public interface SkeletonResource extends ResourcePrototype {
 
 //    SkeletonData getSkeletonData();
 
-//    TextureAtlas getTextureAtlas();
+    TextureAtlas getTextureAtlas();
 }

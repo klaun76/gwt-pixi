@@ -15,6 +15,7 @@ public interface PixiLoader {
     class Statics {
 
         private static boolean injected;
+        static final Resources res = GWT.create(Resources.class);
 
         public static void ensureInjected() {
             if (injected) {
@@ -22,8 +23,6 @@ public interface PixiLoader {
             }
 
             injected = true;
-
-            final Resources res = GWT.create(Resources.class);
 
             ScriptInjector.FromString pixi = ScriptInjector.fromString(res.pixi().getText());
             pixi.setWindow(ScriptInjector.TOP_WINDOW);
@@ -41,25 +40,32 @@ public interface PixiLoader {
             pathParticle.setWindow(ScriptInjector.TOP_WINDOW);
             pathParticle.inject();
 
+            ScriptInjector.FromString instance = ScriptInjector.fromString(res.pixiSpine_1_5_9().getText());
+            instance.setWindow(ScriptInjector.TOP_WINDOW);
+            instance.inject();
+
             Logger.getLogger("common").fine("PIXI loaded");
         }
 
         protected interface Resources extends ClientBundle {
-            @Source("pixi.min.js")
-//            @Source("pixi.js")
+//            @Source("pixi.min.js")
+            @Source("pixi.js")
             TextResource pixi();
 
-            @Source("pixi-particles.min.js")
-//            @Source("pixi-particles.js")
+//            @Source("pixi-particles.min.js")
+            @Source("pixi-particles.js")
             TextResource pixiParticles();
 
-            @Source("modules/animated-particle.min.js")
-//            @Source("modules/animated-particle.js")
+//            @Source("modules/animated-particle.min.js")
+            @Source("modules/animated-particle.js")
             TextResource animatedParticle();
 
-            @Source("modules/path-particle.min.js")
-//            @Source("modules/path-particle.js")
+//            @Source("modules/path-particle.min.js")
+            @Source("modules/path-particle.js")
             TextResource pathParticle();
+
+            @Source("spine.1.5.9/pixi-spine.min.js")
+            TextResource pixiSpine_1_5_9();
         }
 
     }
