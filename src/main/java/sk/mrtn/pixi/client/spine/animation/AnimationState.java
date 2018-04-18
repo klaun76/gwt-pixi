@@ -1,11 +1,10 @@
 package sk.mrtn.pixi.client.spine.animation;
 
-import jsinterop.annotations.JsConstructor;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsProperty;
-import jsinterop.annotations.JsType;
+import jsinterop.annotations.*;
 import sk.mrtn.pixi.client.spine.Skeleton;
+import sk.mrtn.pixi.client.spine.Spine;
 import sk.mrtn.pixi.client.spine.TrackEntry;
+import sk.mrtn.pixi.client.spine.events.ISpineEventHandler;
 
 /**
  * Since applying animations with crossfading is very common, AnimationState makes it more convenient.
@@ -29,10 +28,8 @@ import sk.mrtn.pixi.client.spine.TrackEntry;
 @JsType(isNative = true, namespace = "PIXI.spine.core")
 public class AnimationState {
 
-    @JsProperty
-    public int timeScale;
+    public double timeScale;
 
-    @JsConstructor
     public AnimationState(AnimationStateData data){};
 
     /**
@@ -48,7 +45,6 @@ public class AnimationState {
      * @param animationName - animation name given skeleton.json#animations json object
      * @param loop - looping animation if true
      */
-    @JsMethod
     public native void setAnimation(int trackIndex, String animationName, boolean loop);
 
     /**
@@ -64,7 +60,6 @@ public class AnimationState {
      * @param loop - looping animation if true
      * @param delay - delay in seconds
      */
-    @JsMethod
     public native void addAnimation(int trackIndex, String animationName, boolean loop, double delay);
 
     /**
@@ -79,7 +74,6 @@ public class AnimationState {
      * @param animation - animation instance
      * @param loop - looping animation if true
      */
-    @JsMethod
     public native void setAnimationWith(int trackIndex, Animation animation, boolean loop);
 
     /**
@@ -95,7 +89,6 @@ public class AnimationState {
      * @param loop - looping animation if true
      * @param delay - delay in seconds
      */
-    @JsMethod
     public native void addAnimationWith(int trackIndex, Animation animation, boolean loop, double delay);
 
     /**
@@ -105,14 +98,12 @@ public class AnimationState {
      * Animations is finished as is visually.
      * @param trackIndex - just a spacetime for animation playback
      */
-    @JsMethod
     public native void clearTrack(int trackIndex);
 
     /**
      * Clears all available running track. Registration is done via {@link #setAnimation(int, String, boolean)}
      * Check {@link #clearTrack(int)} for more details.
      */
-    @JsMethod
     public native void clearTracks();
 
     /**
@@ -120,28 +111,60 @@ public class AnimationState {
      * @param trackIndex - track index
      * @return track entry instance or null if undefined
      */
-    @JsMethod
     public native TrackEntry getCurrent(int trackIndex);
 
     /**
      * Increases the animation state's `time` field.
      * @param delta
      */
-    @JsMethod
     public native void update(double delta);
 
     /**
      * Poses the skeleton using the current animation and time.
      * @param skeleton
      */
-    @JsMethod
     public native void apply(Skeleton skeleton);
 
-    @JsMethod
     public native void setEmptyAnimation(int trackIndex, double mixDuration);
 
-    @JsMethod
     public native Object addListener(Object listener);
+
+    @JsOverlay
+    public final void addEvents(Spine animation, ISpineEventHandler handler) {
+        Statics.addEvents(animation, handler);
+    }
+
+    public static class Statics {
+        public static native void addEvents(Spine animation, ISpineEventHandler handler)
+            /*-{
+            animation.state.addListener({
+                event: function(entry, event) {
+//                    $wnd.console.log("event fired!", entry.trackIndex, event);
+                    handler.@sk.mrtn.pixi.client.spine.events.ISpineEventHandler::onUserEvent(ILsk/mrtn/pixi/client/spine/events/Event;)(entry.trackIndex, event);
+                },
+                complete: function(entry, count) {
+//                    $wnd.console.log("complete event fired!", entry.trackIndex, count);
+                    handler.@sk.mrtn.pixi.client.spine.events.ISpineEventHandler::onCompleteEvent(II)(entry.trackIndex, count);
+                },
+                start: function(entry) {
+//                    $wnd.console.log("start event fired!", entry.trackIndex);
+                    handler.@sk.mrtn.pixi.client.spine.events.ISpineEventHandler::onStartEvent(I)(entry.trackIndex);
+                },
+                end: function(entry) {
+//                    $wnd.console.log("end event fired!", trackIndex);
+                    handler.@sk.mrtn.pixi.client.spine.events.ISpineEventHandler::onEndEvent(I)(entry.trackIndex);
+                },
+                dispose: function(entry) {
+//                    $wnd.console.log('animation was disposed at '+entry.trackIndex);
+                    handler.@sk.mrtn.pixi.client.spine.events.ISpineEventHandler::onDisposeEvent(I)(entry.trackIndex);
+                },
+                interrupted: function(entry) {
+//                    $wnd.console.log('animation was interrupted at '+entry.trackIndex);
+                    handler.@sk.mrtn.pixi.client.spine.events.ISpineEventHandler::onInterruptedEvent(I)(entry.trackIndex);
+                }
+            });
+        }-*/;
+    }
 
     //region AUTOGENERATED METHODS AND FIELDS - not used
     // PUBLIC STATIC FIELDS
