@@ -18,13 +18,8 @@ import sk.mrtn.pixi.client.spine.animation.Animation;
 @JsType(isNative = true, namespace = "PIXI.spine.core")
 public class TrackEntry {
 
-    // PUBLIC STATIC FIELDS
     @JsProperty
-    public static boolean deprecatedWarning1;
-    @JsProperty
-    public static boolean deprecatedWarning2;
-
-    // PUBLIC STATIC METHODS
+    public native int getTrackIndex();
 
     @JsConstructor
     public TrackEntry() {};

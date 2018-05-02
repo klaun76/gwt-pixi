@@ -4,6 +4,16 @@ import com.google.gwt.event.shared.HandlerRegistration;
 import sk.mrtn.pixi.client.spine.Spine;
 
 public interface ISpineEventListener {
+
+    enum SpineEventListenerType {
+        START,
+        EVENT,
+        END,
+        COMPLETE,
+        DISPOSE,
+        INTERUPTED
+    }
+
     interface IStartEventListener {
         void onStartEvent(final Spine spine, final int trackIndex);
     }
